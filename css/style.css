@@ -459,46 +459,63 @@ body {
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
     :root {
-        --cell-size: 55px;
+        --cell-size: 50px;
+    }
+    .side-panel {
+        width: 200px;
     }
 }
 
 @media (max-width: 800px) {
-    #main-area {
-        flex-direction: column;
-    }
+    /* Keep #main-area horizontal, do not change flex-direction */
     .side-panel {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 120px;
+        width: 120px;
+        gap: 10px;
     }
     .character-img {
         width: 80px;
-        height: 100px;
-        background-position: center top;
+        height: 80px;
+        background-position: bottom center;
     }
     .character-name {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+    .pillar-wrapper {
+        height: 250px;
     }
     :root {
-        --cell-size: 45px;
+        --cell-size: 35px;
     }
 }
 
 @media (max-width: 450px) {
     :root {
-        --cell-size: 10vw;
+        --cell-size: 6vw; /* Board takes 54vw */
+    }
+    #main-area {
+        gap: 5px;
     }
     .side-panel {
-        height: auto;
-        flex-wrap: wrap;
+        width: 22vw;
+        gap: 5px;
     }
-    .value, .highlight {
-        font-size: 1rem;
+    .character-img {
+        width: 50px;
+        height: 50px;
+    }
+    .character-name {
+        font-size: 0.8rem;
+    }
+    .pillar-wrapper {
+        height: 180px;
+    }
+    .panel-stats, .panel-controls {
         padding: 5px;
     }
-    #top-bar {
-        flex-wrap: wrap;
+    .btn {
+        padding: 5px;
+        font-size: 0.7rem;
     }
+    .label { font-size: 10px; }
+    .value { font-size: 14px; }
 }

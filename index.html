@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Modern Color Lines</title>
     <meta name="description" content="A modernized, responsive web version of the classic Color Lines game.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Game Screen (Hidden initially) -->
     <div id="game-container" class="hidden">
@@ -23,7 +25,7 @@
                 <span class="label">SCORE</span>
                 <span id="current-score" class="value">0</span>
             </div>
-            
+
             <div class="next-colors-container glass-panel">
                 <span class="label">NEXT</span>
                 <div id="next-colors" class="next-colors-slots">
@@ -61,7 +63,7 @@
                 <div id="game-board">
                     <!-- 9x9 Grid will be injected here via JS -->
                 </div>
-                
+
                 <!-- Game Over Overlay -->
                 <div id="game-over-modal" class="modal hidden">
                     <div class="modal-content glass-panel">
@@ -84,7 +86,8 @@
                     <div class="pillar" id="pillar-pretender"></div>
                 </div>
                 <div class="panel-controls glass-panel">
-                    <button id="btn-menu" class="btn secondary-btn full-width" style="margin-bottom: 10px;">Menu</button>
+                    <button id="btn-menu" class="btn secondary-btn full-width"
+                        style="margin-bottom: 10px;">Menu</button>
                     <button id="btn-restart" class="btn primary-btn full-width">Restart</button>
                 </div>
             </aside>
@@ -94,11 +97,14 @@
     <!-- Main Menu Modal -->
     <div id="main-menu" class="modal">
         <div class="modal-content glass-panel" style="width: 400px; max-width: 90%;">
-            <h1 style="color: gold; text-align: center; text-shadow: 2px 2px #000; font-family: Arial, sans-serif; font-size: 36px; margin-bottom: 30px;">COLOR LINES</h1>
-            
+            <h1
+                style="color: gold; text-align: center; text-shadow: 2px 2px #000; font-family: Arial, sans-serif; font-size: 36px; margin-bottom: 30px;">
+                COLOR LINES</h1>
+
             <div style="margin: 30px 0; display: flex; flex-direction: column; gap: 15px;">
                 <label style="font-size: 14px; text-transform: uppercase;">Zorluk Seçimi:</label>
-                <select id="difficulty-select" class="btn" style="width: 100%; text-align: center; font-size: 16px; padding: 10px;">
+                <select id="difficulty-select" class="btn"
+                    style="width: 100%; text-align: center; font-size: 16px; padding: 10px;">
                     <option value="easy">Kolay (Easy)</option>
                     <option value="medium" selected>Orta (Medium)</option>
                     <option value="hard">Zor (Hard)</option>
@@ -106,12 +112,15 @@
             </div>
 
             <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                <button id="btn-start-game" class="btn primary-btn full-width" style="font-size: 18px; padding: 15px;">OYUNA BAŞLA</button>
+                <button id="btn-start-game" class="btn primary-btn full-width"
+                    style="font-size: 18px; padding: 15px;">OYUNA BAŞLA</button>
             </div>
-            
+
             <div style="display: flex; justify-content: center; gap: 20px;">
-                <button id="btn-menu-sound" class="btn" aria-label="Toggle Sound" style="font-size: 24px; padding: 10px 20px;">🔊</button>
-                <button id="btn-menu-leaderboard" class="btn" aria-label="Leaderboard" style="font-size: 24px; padding: 10px 20px;">🏆</button>
+                <button id="btn-menu-sound" class="btn" aria-label="Toggle Sound"
+                    style="font-size: 24px; padding: 10px 20px;">🔊</button>
+                <button id="btn-menu-leaderboard" class="btn" aria-label="Leaderboard"
+                    style="font-size: 24px; padding: 10px 20px;">🏆</button>
             </div>
         </div>
     </div>
@@ -120,7 +129,8 @@
     <div id="leaderboard-modal" class="modal hidden">
         <div class="modal-content glass-panel">
             <button id="btn-close-leaderboard" class="close-btn">×</button>
-            <h2 style="font-family: Arial, sans-serif; color: gold; text-shadow: 1px 1px 0 #000;">Global Leaderboard</h2>
+            <h2 style="font-family: Arial, sans-serif; color: gold; text-shadow: 1px 1px 0 #000;">Global Leaderboard
+            </h2>
             <ul id="leaderboard-list">
                 <li>Loading...</li>
             </ul>
@@ -133,4 +143,5 @@
     <script src="js/game.js"></script>
     <script src="js/ui.js"></script>
 </body>
+
 </html>

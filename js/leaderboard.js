@@ -4,7 +4,7 @@
  * Falls back to LocalStorage if the backend is unreachable.
  */
 
-const API_URL = 'http://localhost:3000/api/leaderboard';
+const API_URL = 'https://colorlinesretrodeluxe.onrender.com/api/leaderboard';
 
 class Leaderboard {
     static async getScores() {
