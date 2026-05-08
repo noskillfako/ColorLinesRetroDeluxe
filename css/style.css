@@ -1,19 +1,27 @@
 :root {
     --bg-dark: #000000;
-    --panel-bg: #808080; /* Classic windows gray */
+    --panel-bg: #808080;
+    /* Classic windows gray */
     --board-bg: #808080;
     --grid-line: #000000;
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
-    
+
     /* Ball Colors (Retro, Darker) */
-    --color-1: #cc0000; /* Darker Red */
-    --color-2: #00aa00; /* Darker Green */
-    --color-3: #0000cc; /* Darker Blue */
-    --color-4: #cccc00; /* Darker Yellow */
-    --color-5: #00cccc; /* Darker Cyan */
-    --color-6: #cc00cc; /* Darker Magenta */
-    --color-7: #660066; /* Darker Purple */
+    --color-1: #cc0000;
+    /* Darker Red */
+    --color-2: #00aa00;
+    /* Darker Green */
+    --color-3: #0000cc;
+    /* Darker Blue */
+    --color-4: #cccc00;
+    /* Darker Yellow */
+    --color-5: #00cccc;
+    /* Darker Cyan */
+    --color-6: #cc00cc;
+    /* Darker Magenta */
+    --color-7: #660066;
+    /* Darker Purple */
 
     /* Cell size - making it larger */
     --cell-size: 60px;
@@ -39,12 +47,14 @@ body {
 
 #game-container {
     width: 100%;
-    max-width: 1200px; /* Increased max width */
+    max-width: 1200px;
+    /* Increased max width */
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 4px solid #fff; /* Outer border */
+    border: 4px solid #fff;
+    /* Outer border */
     border-top-color: #aaa;
     border-left-color: #aaa;
     border-bottom-color: #555;
@@ -75,7 +85,9 @@ body {
     border-right: 2px solid #444;
 }
 
-.score-display, .next-colors-container, .top-controls {
+.score-display,
+.next-colors-container,
+.top-controls {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,10 +123,13 @@ body {
     text-shadow: 1px 1px 0 #000;
 }
 
-.value, .highlight {
-    font-family: 'Press Start 2P', monospace; /* Pixel font for numbers */
+.value,
+.highlight {
+    font-family: 'Press Start 2P', monospace;
+    /* Pixel font for numbers */
     font-size: 1.2rem;
-    color: #00ff00; /* Neon green numbers */
+    color: #00ff00;
+    /* Neon green numbers */
     background: #000;
     padding: 5px 15px;
     border: 2px solid #808080;
@@ -171,7 +186,8 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 350px; /* Fixed height container so pillars can grow upwards */
+    height: 350px;
+    /* Fixed height container so pillars can grow upwards */
     position: relative;
     width: 100%;
 }
@@ -185,36 +201,47 @@ body {
     position: relative;
     z-index: 2;
     /* Optional: drop shadow to make them stand out from background */
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.8));
 }
 
 .pillar {
     width: 70px;
-    height: 0px; /* Dynamic via JS */
-    background: linear-gradient(to right, #666 0%, #eee 40%, #eee 60%, #555 100%); /* Silver cylinder */
+    height: 0px;
+    /* Dynamic via JS */
+    background: linear-gradient(to right, #666 0%, #eee 40%, #eee 60%, #555 100%);
+    /* Silver cylinder */
     border-top: 2px solid #ccc;
     border-left: 1px solid #ddd;
     border-right: 1px solid #333;
     border-radius: 5px 5px 0 0;
-    transition: height 0.5s ease-out; /* Smooth growth */
+    transition: height 0.5s ease-out;
+    /* Smooth growth */
     z-index: 1;
-    margin-top: -10px; /* Overlap slightly so character sits on it */
+    margin-top: -10px;
+    /* Overlap slightly so character sits on it */
 }
 
 /* Fallbacks to user-uploaded images */
-#char-alisa { background-image: url('../assets/alisa.png'); }
-#char-pretender { background-image: url('../assets/pretender.png'); }
+#char-alisa {
+    background-image: url('../assets/alisa.png');
+}
+
+#char-pretender {
+    background-image: url('../assets/pretender.png');
+}
 
 .character-name {
     margin-top: 10px;
     font-size: 2.5rem;
-    font-family: Arial, Helvetica, sans-serif; /* Flat modern font */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Flat modern font */
     font-weight: bold;
     color: #ffff00;
     text-shadow: 2px 2px 0 #000;
 }
 
-.panel-stats, .panel-controls {
+.panel-stats,
+.panel-controls {
     padding: 10px;
     width: 100%;
 }
@@ -247,10 +274,13 @@ body {
     border-left: 2px solid #444;
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
-    padding: 6px 14px 4px 16px; /* Offset text on click */
+    padding: 6px 14px 4px 16px;
+    /* Offset text on click */
 }
 
-.full-width { width: 100%; }
+.full-width {
+    width: 100%;
+}
 
 /* --- Game Board --- */
 .board-wrapper {
@@ -264,7 +294,8 @@ body {
 }
 
 #game-board {
-    background: #808080; /* Gray board */
+    background: #808080;
+    /* Gray board */
     padding: var(--board-padding);
     border-top: 3px solid #fff;
     border-left: 3px solid #fff;
@@ -273,14 +304,16 @@ body {
     display: grid;
     grid-template-columns: repeat(9, var(--cell-size));
     grid-template-rows: repeat(9, var(--cell-size));
-    gap: 0; /* No gap, classic grid lines */
+    gap: 0;
+    /* No gap, classic grid lines */
 }
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
     background: #808080;
-    border-top: 1px solid #444; /* Engraved look */
+    border-top: 1px solid #444;
+    /* Engraved look */
     border-left: 1px solid #444;
     border-bottom: 1px solid #fff;
     border-right: 1px solid #fff;
@@ -305,7 +338,8 @@ body {
 
 /* Selected cell background */
 .cell.selected {
-    background: #505050; /* Darker gray to indicate selection */
+    background: #505050;
+    /* Darker gray to indicate selection */
     border-top: 2px solid #000;
     border-left: 2px solid #000;
     border-bottom: 2px solid #ccc;
@@ -318,15 +352,22 @@ body {
     height: 75%;
     border-radius: 50%;
     /* Classic 3D shading with a softer white highlight so it's not too bright */
-    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.6), inset 3px 3px 6px rgba(255,255,255,0.4), 2px 2px 5px rgba(0,0,0,0.5);
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.6), inset 3px 3px 6px rgba(255, 255, 255, 0.4), 2px 2px 5px rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 10;
 }
 
 /* Ball selection animation (simple jump) */
 @keyframes jump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .cell.selected .ball {
@@ -335,9 +376,23 @@ body {
 
 /* Popping animation - Explosion effect */
 @keyframes explode {
-    0% { transform: scale(1); filter: brightness(1); opacity: 1; }
-    30% { transform: scale(1.5); filter: brightness(2); opacity: 1; }
-    100% { transform: scale(0); filter: brightness(3); opacity: 0; }
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(1.5);
+        filter: brightness(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        filter: brightness(3);
+        opacity: 0;
+    }
 }
 
 .ball.popping {
@@ -345,8 +400,13 @@ body {
 }
 
 @keyframes spawn {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .ball.spawning {
@@ -356,17 +416,37 @@ body {
 .ball.small {
     width: 15px;
     height: 15px;
-    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.6), inset 1px 1px 3px rgba(255,255,255,0.8);
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6), inset 1px 1px 3px rgba(255, 255, 255, 0.8);
     position: static;
 }
 
-.color-1 { background-color: var(--color-1); }
-.color-2 { background-color: var(--color-2); }
-.color-3 { background-color: var(--color-3); }
-.color-4 { background-color: var(--color-4); }
-.color-5 { background-color: var(--color-5); }
-.color-6 { background-color: var(--color-6); }
-.color-7 { background-color: var(--color-7); }
+.color-1 {
+    background-color: var(--color-1);
+}
+
+.color-2 {
+    background-color: var(--color-2);
+}
+
+.color-3 {
+    background-color: var(--color-3);
+}
+
+.color-4 {
+    background-color: var(--color-4);
+}
+
+.color-5 {
+    background-color: var(--color-5);
+}
+
+.color-6 {
+    background-color: var(--color-6);
+}
+
+.color-7 {
+    background-color: var(--color-7);
+}
 
 /* --- Modals --- */
 .modal {
@@ -461,8 +541,42 @@ body {
     :root {
         --cell-size: 50px;
     }
+
     .side-panel {
         width: 200px;
     }
 }
 
+@media (max-width: 750px) {
+    :root {
+        --cell-size: 38px;
+    }
+
+    .side-panel {
+        width: 140px;
+        gap: 10px;
+    }
+
+    .character-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .character-name {
+        font-size: 1.1rem;
+    }
+
+    .pillar-wrapper {
+        height: 200px;
+    }
+
+    .label {
+        font-size: 1rem;
+    }
+
+    .value,
+    .highlight {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
