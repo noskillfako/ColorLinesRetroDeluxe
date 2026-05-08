@@ -6,14 +6,14 @@
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
     
-    /* Ball Colors (Retro) */
-    --color-1: #ff0000; /* Red */
-    --color-2: #008000; /* Green */
-    --color-3: #0000ff; /* Blue */
-    --color-4: #ffff00; /* Yellow */
-    --color-5: #00ffff; /* Cyan */
-    --color-6: #ff00ff; /* Magenta */
-    --color-7: #800080; /* Purple */
+    /* Ball Colors (Retro, Darker) */
+    --color-1: #cc0000; /* Darker Red */
+    --color-2: #00aa00; /* Darker Green */
+    --color-3: #0000cc; /* Darker Blue */
+    --color-4: #cccc00; /* Darker Yellow */
+    --color-5: #00cccc; /* Darker Cyan */
+    --color-6: #cc00cc; /* Darker Magenta */
+    --color-7: #660066; /* Darker Purple */
 
     /* Cell size - making it larger */
     --cell-size: 60px;
@@ -317,8 +317,8 @@ body {
     width: 75%;
     height: 75%;
     border-radius: 50%;
-    /* Classic 3D shading with a clear white highlight */
-    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.6), inset 3px 3px 6px rgba(255,255,255,0.8), 2px 2px 5px rgba(0,0,0,0.5);
+    /* Classic 3D shading with a softer white highlight so it's not too bright */
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.6), inset 3px 3px 6px rgba(255,255,255,0.4), 2px 2px 5px rgba(0,0,0,0.5);
     position: absolute;
     z-index: 10;
 }
@@ -466,56 +466,3 @@ body {
     }
 }
 
-@media (max-width: 800px) {
-    /* Keep #main-area horizontal, do not change flex-direction */
-    .side-panel {
-        width: 120px;
-        gap: 10px;
-    }
-    .character-img {
-        width: 80px;
-        height: 80px;
-        background-position: bottom center;
-    }
-    .character-name {
-        font-size: 1.2rem;
-    }
-    .pillar-wrapper {
-        height: 250px;
-    }
-    :root {
-        --cell-size: 35px;
-    }
-}
-
-@media (max-width: 450px) {
-    :root {
-        --cell-size: 6vw; /* Board takes 54vw */
-    }
-    #main-area {
-        gap: 5px;
-    }
-    .side-panel {
-        width: 22vw;
-        gap: 5px;
-    }
-    .character-img {
-        width: 50px;
-        height: 50px;
-    }
-    .character-name {
-        font-size: 0.8rem;
-    }
-    .pillar-wrapper {
-        height: 180px;
-    }
-    .panel-stats, .panel-controls {
-        padding: 5px;
-    }
-    .btn {
-        padding: 5px;
-        font-size: 0.7rem;
-    }
-    .label { font-size: 10px; }
-    .value { font-size: 14px; }
-}
