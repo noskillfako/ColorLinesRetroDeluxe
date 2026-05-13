@@ -7,21 +7,21 @@
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
 
-    /* Ball Colors (Retro, Darker) */
-    --color-1: #cc0000;
-    /* Darker Red */
-    --color-2: #00aa00;
-    /* Darker Green */
-    --color-3: #0000cc;
-    /* Darker Blue */
-    --color-4: #cccc00;
-    /* Darker Yellow */
-    --color-5: #00cccc;
-    /* Darker Cyan */
-    --color-6: #cc00cc;
-    /* Darker Magenta */
-    --color-7: #660066;
-    /* Darker Purple */
+    /* Ball Colors (Retro, Matte/Soft to reduce eye strain) */
+    --color-1: #c83b3b;
+    /* Soft Red */
+    --color-2: #3bc83b;
+    /* Soft Green */
+    --color-3: #3b3bc8;
+    /* Soft Blue */
+    --color-4: #c8c83b;
+    /* Soft Yellow */
+    --color-5: #3bc8c8;
+    /* Soft Cyan */
+    --color-6: #c83bc8;
+    /* Soft Magenta */
+    --color-7: #8a3bc8;
+    /* Soft Purple */
 
     /* Cell size - making it larger */
     --cell-size: 60px;
@@ -351,8 +351,8 @@ body {
     width: 75%;
     height: 75%;
     border-radius: 50%;
-    /* Classic 3D shading with a softer white highlight so it's not too bright */
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.6), inset 3px 3px 6px rgba(255, 255, 255, 0.4), 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* Classic 3D shading with removed white glare to prevent eye strain */
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.6), 2px 2px 5px rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 10;
 }
@@ -416,7 +416,7 @@ body {
 .ball.small {
     width: 15px;
     height: 15px;
-    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6), inset 1px 1px 3px rgba(255, 255, 255, 0.8);
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6);
     position: static;
 }
 
@@ -549,34 +549,50 @@ body {
 
 @media (max-width: 750px) {
     :root {
-        --cell-size: 38px;
+        --cell-size: 10.5vw; /* Make the board huge (94.5vw total width) */
+    }
+
+    #main-area {
+        flex-direction: column;
+        align-items: center;
     }
 
     .side-panel {
-        width: 140px;
-        gap: 10px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+        gap: 5px;
+        height: auto;
     }
 
     .character-img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
 
     .character-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .pillar-wrapper {
-        height: 200px;
+        height: 100px;
+        width: 60px;
+    }
+
+    .panel-stats, .panel-controls {
+        width: auto;
+        flex: 1;
+        max-width: 200px;
     }
 
     .label {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .value,
     .highlight {
-        font-size: 1rem;
-        padding: 5px 10px;
+        font-size: 0.9rem;
+        padding: 5px;
     }
 }

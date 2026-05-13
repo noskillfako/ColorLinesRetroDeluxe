@@ -125,11 +125,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Don't touch cells with moving ball
                 if (cellEl.querySelector('.moving-ball')) continue;
 
-                cellEl.innerHTML = '';
                 cellEl.classList.remove('selected');
 
+                let ball = cellEl.querySelector('.ball:not(.ghost-ball)');
+                let ghost = cellEl.querySelector('.ghost-ball');
+
                 if (value !== 0) {
-                    const ball = document.createElement('div');
+                    if (ghost) ghost.remove();
+                    if (!ball) {
+                        ball = document.createElement('div');
+                        cellEl.appendChild(ball);
+                    }
                     ball.className = 'ball color-' + value;
 
                     if (
@@ -139,16 +145,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     ) {
                         cellEl.classList.add('selected');
                     }
-
-                    cellEl.appendChild(ball);
-                }
-                // Ghost balls for easy mode
-                if (value === 0 && gameState.difficulty === 'easy' && gameState.nextSpawns) {
-                    const spawn = gameState.nextSpawns.find(s => s.r === r && s.c === c);
-                    if (spawn) {
-                        const ghost = document.createElement('div');
-                        ghost.className = 'ball ghost-ball color-' + spawn.color;
-                        cellEl.appendChild(ghost);
+                } else {
+                    if (ball) ball.remove();
+                    
+                    // Ghost balls for easy mode
+                    if (gameState.difficulty === 'easy' && gameState.nextSpawns) {
+                        const spawn = gameState.nextSpawns.find(s => s.r === r && s.c === c);
+                        if (spawn) {
+                            if (!ghost) {
+                                ghost = document.createElement('div');
+                                cellEl.appendChild(ghost);
+                            }
+                            ghost.className = 'ball ghost-ball color-' + spawn.color;
+                        } else if (ghost) {
+                            ghost.remove();
+                        }
+                    } else if (ghost) {
+                        ghost.remove();
                     }
                 }
             }
