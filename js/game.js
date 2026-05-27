@@ -179,7 +179,7 @@ class Game {
             // Delay to let user see the 5th ball before exploding
             setTimeout(() => {
                 this._doClearLines(cellsToClear, () => {
-                    this._generateNextColors(3);
+                    // Do NOT generate next colors here. Keep the existing ones pending.
                     this.isAnimating = false;
                     this._checkGameOver();
                 });

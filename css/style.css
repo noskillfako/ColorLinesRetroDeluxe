@@ -549,36 +549,59 @@ body {
 
 @media (max-width: 750px) {
     :root {
-        --cell-size: 45px;
+        --cell-size: 10.2vw; /* Huge cells for thick fingers */
     }
 
-    /* Keep it horizontal like desktop, but squeeze the panels to make the board bigger */
+    #game-container {
+        padding: 5px;
+        border-width: 2px;
+    }
+
     #main-area {
-        flex-direction: row;
-        gap: 5px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "board board"
+            "left right";
+        gap: 10px;
+    }
+
+    .board-wrapper {
+        grid-area: board;
+        display: flex;
+        justify-content: center;
+    }
+
+    .left-panel {
+        grid-area: left;
+    }
+
+    .right-panel {
+        grid-area: right;
     }
 
     .side-panel {
-        width: 120px;
-        gap: 10px;
+        width: 100%;
+        gap: 5px;
         padding: 5px;
     }
 
     .character-img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
 
     .character-name {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .pillar-wrapper {
-        height: 180px;
+        height: 120px;
     }
 
     .panel-stats, .panel-controls {
         padding: 5px;
+        width: 100%;
     }
 
     .label {
