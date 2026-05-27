@@ -7,18 +7,18 @@
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
 
-    /* Ball Colors (Retro, Bright) */
-    --color-1: #ff0000;
+    /* Ball Colors (Retro, Softer Brightness) */
+    --color-1: #cc0000;
     /* Red */
-    --color-2: #008000;
+    --color-2: #00aa00;
     /* Green */
-    --color-3: #0000ff;
+    --color-3: #0000cc;
     /* Blue */
-    --color-4: #ffff00;
+    --color-4: #d4d400;
     /* Yellow */
-    --color-5: #00ffff;
+    --color-5: #00bbbb;
     /* Cyan */
-    --color-6: #ff00ff;
+    --color-6: #cc00cc;
     /* Magenta */
     --color-7: #800080;
     /* Purple */
@@ -348,11 +348,11 @@ body {
 
 /* --- Balls --- */
 .ball {
-    width: 75%;
-    height: 75%;
+    width: 90%;
+    height: 90%;
     border-radius: 50%;
-    /* Classic 3D shading with bright white highlight */
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.6), inset 3px 3px 6px rgba(255, 255, 255, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* 3D shading is now handled by radial gradients in color classes. Just a soft drop shadow here. */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 10;
 }
@@ -416,36 +416,43 @@ body {
 .ball.small {
     width: 15px;
     height: 15px;
-    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6), inset 1px 1px 3px rgba(255, 255, 255, 0.8);
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6), inset 1px 1px 3px rgba(255, 255, 255, 0.4);
     position: static;
 }
 
 .color-1 {
-    background-color: var(--color-1);
+    /* Red */
+    background: radial-gradient(circle at 30% 30%, #ff8a8a 0%, #e60000 40%, #660000 100%);
 }
 
 .color-2 {
-    background-color: var(--color-2);
+    /* Green */
+    background: radial-gradient(circle at 30% 30%, #8aff8a 0%, #00aa00 40%, #004d00 100%);
 }
 
 .color-3 {
-    background-color: var(--color-3);
+    /* Blue */
+    background: radial-gradient(circle at 30% 30%, #8a8aff 0%, #0000e6 40%, #000066 100%);
 }
 
 .color-4 {
-    background-color: var(--color-4);
+    /* Yellow */
+    background: radial-gradient(circle at 30% 30%, #ffff8a 0%, #d4d400 40%, #666600 100%);
 }
 
 .color-5 {
-    background-color: var(--color-5);
+    /* Cyan */
+    background: radial-gradient(circle at 30% 30%, #8affff 0%, #00b3b3 40%, #004d4d 100%);
 }
 
 .color-6 {
-    background-color: var(--color-6);
+    /* Orange */
+    background: radial-gradient(circle at 30% 30%, #ffcda8 0%, #ff8c00 40%, #b35900 100%);
 }
 
 .color-7 {
-    background-color: var(--color-7);
+    /* White / Silver */
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #d9d9d9 40%, #737373 100%);
 }
 
 /* --- Modals --- */
@@ -587,8 +594,8 @@ body {
     }
 
     .character-img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
     .character-name {
